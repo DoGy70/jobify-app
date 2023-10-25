@@ -12,12 +12,12 @@ export const authenticateUser = (req, res, next) => {
 
   try {
     const { userId, role } = verifyJWT(token);
-    const testUser = userId === "651d22e6346f444036612d9f";
+    const testUser = userId === "6538e7bd3bf768cbc0fd4ddd";
     req.user = { userId, role, testUser };
     next();
   } catch (error) {
     throw new UnauthenticatedError("authentication invalid");
-  } 
+  }
 };
 
 export const authorizedPermissions = (...roles) => {
